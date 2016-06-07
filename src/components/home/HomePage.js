@@ -10,6 +10,6 @@ export default class HomePage extends React.Component {
           <p>Welcome to learning react 101</p>
         </div>
       </div>
-    )
+    );
   }
 }

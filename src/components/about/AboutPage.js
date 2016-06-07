@@ -8,6 +8,6 @@ export default class AboutPage extends React.Component {
         <h1>About Page</h1>
         <Link to="/" className="btn btn-primary btn-lg">Lean More</Link>
       </div>
-    )
+    );
   }
 }

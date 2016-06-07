@@ -11,6 +11,6 @@ const Header = () => {
       <Link to="about" className="">Lean More</Link>
     </div>
   );
-}
+};
 
 export default Header;

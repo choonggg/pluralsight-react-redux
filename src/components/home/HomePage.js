@@ -5,8 +5,10 @@ export default class HomePage extends React.Component {
   render() {
     return (
       <div>
-        <h1>Hello World react</h1>
-        <Link to="about" className="btn btn-primary btn-lg">Lean More</Link>
+        <div className="jumbotron">
+          <h1>Hello World react</h1>
+          <p>Welcome to learning react 101</p>
+        </div>
       </div>
     )
   }

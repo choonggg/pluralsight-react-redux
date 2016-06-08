@@ -2,13 +2,15 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as courseActions from '../../actions/courseActions';
+import CourseForm from './CourseForm';
 
 class ManageCoursePage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      courses: ''
+      course: Object.assign({}, this.props.course),
+      errors: {}
     };
   }
 
@@ -25,26 +27,32 @@ class ManageCoursePage extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Add Course</h2>
-        {/* <input type="text" */}
-        {/*   onChange={this.onTitleChange} */}
-        {/*   value={this.state.course.title} /> */}
-        {/*  */}
-        {/* <input type="submit" value="Save" onClick={this.onClickSave} /> */}
-      </div>
+      <CourseForm 
+        allAuthors={this.props.authors}
+        errors={this.state.errors}
+        course={this.state.course} />
     );
   }
 }
 
 ManageCoursePage.propTypes = {
-  courses: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
+  course: PropTypes.object.isRequired,
+  authors: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
+  let course = {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
+  const authorsForDropdown = state.authors.map(author => {
+    return {
+      value: author.id,
+      text: author.firstName
+      //text: `${author.firstName} ${author.lastName}`
+    };
+  });
+
   return {
-    course: state.course
+    course: course,
+    authors: authorsForDropdown
   };
 }
 

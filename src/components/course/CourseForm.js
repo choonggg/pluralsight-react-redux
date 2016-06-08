@@ -16,6 +16,8 @@ const CourseForm = ({course, allAuthors, onSave, onChange, loading, errors}) => 
       <SelectInput
         name="authorId"
         label="Author"
+        defaultOption="Pls select authors"
+        options={allAuthors}
         value={course.authorId}
         onChange={onChange}
         error={errors.authorId} />
@@ -48,8 +50,8 @@ CourseForm.propTypes = {
   allAuthors: React.PropTypes.array,
   onSave: React.PropTypes.func.isRequired,
   onChange: React.PropTypes.func.isRequired,
-  loading: React.propTypes.bool,
-  errors: React.propTypes.object
+  loading: React.PropTypes.bool,
+  errors: React.PropTypes.object
 };
 
 export default CourseForm;

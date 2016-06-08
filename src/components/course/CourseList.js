@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import CourseListRow from './CourseListRow';
 
 const CourseList = ({courses, deleteCourse}) => {
@@ -18,6 +18,11 @@ const CourseList = ({courses, deleteCourse}) => {
       </tbody>
     </table>
   );
+};
+
+CourseList.propTypes = {
+  courses: PropTypes.array,
+  deleteCourse: PropTypes.func
 };
 
 export default CourseList;

@@ -1,7 +1,7 @@
 import expect from 'expect';
 import {authorsForDropdown} from './selectors';
 
-describe('Authors Dropdown', () => {
+describe('Selectors', () => {
 
   describe('authorsForDropdown', () => {
     const authors = [

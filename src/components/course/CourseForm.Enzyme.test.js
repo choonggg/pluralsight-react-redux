@@ -1,5 +1,5 @@
 import expect from 'expect';
-import React from 'React';
+import React from 'react';
 import {mount, shallow} from 'enzyme';
 import CourseForm from './CourseForm';
 

@@ -6,7 +6,7 @@ import CourseForm from './CourseForm';
 import toastr from 'toastr';
 import {authorsForDropdown} from '../../selectors/selectors';
 
-class ManageCoursePage extends React.Component {
+export class ManageCoursePage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -33,8 +33,24 @@ class ManageCoursePage extends React.Component {
     return this.setState({course});
   }
 
+  courseFormValid() {
+    let formIsValid = true;
+    let errors = {};
+
+    if (this.state.course.title.length < 5) {
+      errors.title = 'Title must be at least 5 characters.';
+      formIsValid = false;
+      this.setState({errors: errors});
+      return formIsValid;
+    }
+  }
+
   saveCourse(e) {
     e.preventDefault();
+    if (!this.courseFormValid()) {
+      return;
+    }
+
     this.setState({saving: true});
     this.props.actions.saveCourse(this.state.course)
     .then(() => this.redirect())

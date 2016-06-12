@@ -1,5 +1,5 @@
 import expect from 'expect';
-import React from 'React';
+import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import CourseForm from './CourseForm';
 
@@ -35,11 +35,11 @@ describe('CourseForm via test utils', () => {
     const submitButton = output.props.children[5];
 
     expect(submitButton.props.value).toBe('Save');
-  })
+  });
 
   it("Save button is labeled 'Saving...' when saving", () => {
     const { output } = setup(true);
     const submitButton = output.props.children[5];
     expect(submitButton.props.value).toBe('Saving...');
-  })
+  });
 });
